@@ -1,5 +1,7 @@
 # Space-Shooter-Example
 
+![screenshot](https://github.com/Sockstah/Space-Shooter-Example/master/screenshot.png)
+
 A simple example project for a space shooter with controls modeled atfer the game Freelancer. Made in Godot 3.
 
 ## Controls:
