@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/debris.obj-e10737564de60b5cdb1f312ccf7911a1.mesh"
+
+[deps]
+
+files=[ "res://.import/debris.obj-e10737564de60b5cdb1f312ccf7911a1.mesh" ]
+
+source_file="res://assets/models/debris.obj"
+source_md5="c149817664812410cf80bc40141fb687"
+
+dest_files=[ "res://.import/debris.obj-e10737564de60b5cdb1f312ccf7911a1.mesh", "res://.import/debris.obj-e10737564de60b5cdb1f312ccf7911a1.mesh" ]
+dest_md5="6458e28c4b743c612a6e2abd9cf3c9e7"
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )

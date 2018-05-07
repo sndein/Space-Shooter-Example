@@ -1,0 +1,236 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://scripts/TestSector.gd" type="Script" id=1]
+[ext_resource path="res://scenes/Asteroid.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/MainUI.gd" type="Script" id=3]
+[ext_resource path="res://assets/textures/ninepatch.png" type="Texture" id=4]
+[ext_resource path="res://assets/fonts/D-DIN.otf" type="DynamicFontData" id=5]
+[ext_resource path="res://scenes/Ship.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/environments/purple_environment.tres" type="Environment" id=7]
+[ext_resource path="res://scenes/Debris.tscn" type="PackedScene" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+
+size = 24
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 5 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=2]
+
+size = 32
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 5 )
+_sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
+
+[node name="TestSector" type="Spatial" index="0"]
+
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+object = ExtResource( 2 )
+count = 500
+random_rotation = true
+scale_range = Vector2( 20, 20 )
+radius = 1000
+
+[node name="MainUI" type="Control" parent="." index="0"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+script = ExtResource( 3 )
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Rect", "Size Flags" ]
+
+[node name="NinePatchSpeed" type="NinePatchRect" parent="MainUI" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 612.0
+margin_top = 688.0
+margin_right = 676.0
+margin_bottom = 720.0
+rect_min_size = Vector2( 64, 32 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+texture = ExtResource( 4 )
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+_sections_unfolded = [ "Axis Stretch", "Size Flags" ]
+
+[node name="Speedometer" type="Label" parent="MainUI/NinePatchSpeed" index="0"]
+
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -624.0
+margin_top = -15.5
+margin_right = 624.0
+margin_bottom = 15.5
+rect_min_size = Vector2( 24, 24 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "Size Flags", "custom_colors", "custom_constants", "custom_fonts" ]
+
+[node name="NinePatchEngine" type="NinePatchRect" parent="MainUI" index="1"]
+
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+margin_left = -98.0
+margin_right = 98.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 196, 32 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+texture = ExtResource( 4 )
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+_sections_unfolded = [ "Axis Stretch", "Rect", "Size Flags" ]
+
+[node name="EngineState" type="Label" parent="MainUI/NinePatchEngine" index="0"]
+
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -624.0
+margin_top = -15.5
+margin_right = 624.0
+margin_bottom = 15.5
+rect_min_size = Vector2( 24, 24 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "Size Flags", "custom_colors", "custom_constants", "custom_fonts" ]
+
+[node name="LabelMouselook" type="Label" parent="MainUI" index="2"]
+
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -73.0
+margin_top = 280.0
+margin_right = 72.0
+margin_bottom = 313.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+text = "Mouselook"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_constants" ]
+
+[node name="Ship" parent="." index="1" instance=ExtResource( 6 )]
+
+mass = 100.0
+_sections_unfolded = [ "Angular", "Linear", "Transform" ]
+throttle_change = 1.99999
+engine_drag = 400.0
+thruster_force = 40000.0
+strafe_force = 24000.0
+steering_torque = Vector3( 160000, 160000, 160000 )
+angular_drag = Vector3( 50000, 50000, 50000 )
+rotation_inertia = Vector3( 12500, 12500, 12500 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="2"]
+
+environment = ExtResource( 7 )
+
+[node name="Sun" type="DirectionalLight" parent="." index="3"]
+
+transform = Transform( 0.598058, 0, 0.801453, -0.505015, 0.776495, 0.376851, -0.622324, -0.630124, 0.464389, 0, 0, 0 )
+layers = 1
+light_color = Color( 1, 1, 1, 1 )
+light_energy = 1.0
+light_indirect_energy = 1.0
+light_negative = false
+light_specular = 0.5
+light_bake_mode = 2
+light_cull_mask = -1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_bias = 0.1
+shadow_contact = 0.0
+shadow_reverse_cull_face = false
+editor_only = false
+directional_shadow_mode = 2
+directional_shadow_split_1 = 0.2
+directional_shadow_split_2 = 0.5
+directional_shadow_split_3 = 0.8
+directional_shadow_blend_splits = true
+directional_shadow_normal_bias = 0.8
+directional_shadow_bias_split_scale = 0.25
+directional_shadow_depth_range = 1
+directional_shadow_max_distance = 10000.0
+_sections_unfolded = [ "Directional Shadow", "Light", "Shadow" ]
+
+[node name="Debris" parent="." index="4" instance=ExtResource( 8 )]
+
+transform = Transform( 74.3214, 25.1258, 15.653, -29.6027, 63.0815, 39.2989, 0, -42.3015, 67.9013, 0, 0, -756.677 )
+_sections_unfolded = [ "Transform" ]
+
+
