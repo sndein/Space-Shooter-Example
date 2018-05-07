@@ -11,3 +11,4 @@ A simple example project for a space shooter with controls modeled atfer the gam
 - Space: Toggle mouse flight
 - LMB: Activate mouse flight
 - RMB: Fire
+- MMB: toggle engine kill
